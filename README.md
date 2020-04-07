@@ -10,4 +10,6 @@ todo_list_flask_sqlite
     static/ - директория с статическими файлами (css)
 	requirements.txt - установка зависимостей окружения
 	
-![alt text](http://url/to/img.png)
+![main](https://github.com/subZiro/todo_list_flask_sqlite/blob/master/app/static/img/main.jpg)
+
+![update](https://github.com/subZiro/todo_list_flask_sqlite/blob/master/app/static/img/update%20task.jpg)
