@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        <!-- title page -->
+        <title>
+            {% block title %}
+            {% endblock %} | Flask app
+        </title>
+    </head>
+
+    <body>
+        <!-- Main Content -->
+        {% block content %}
+        {% endblock %}
+        <!--
+        <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+        <script id="rendered-js" type="text/javascript" src="{{ url_for('static', filename='js/js.js') }}"></script>
+        -->
+    </body>
+
+</html>

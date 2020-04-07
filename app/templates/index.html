@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    ToDo list
+{% endblock %}
+
+{% block content %}
+    <!-- Main Content -->
+    <form action="/" method="POST">
+        <div class="container" style="margin-top: 10px">
+            {% for category, message in get_flashed_messages(with_categories=True) %}
+                <div class="alert alert-{{category}}">{{ message }}</div>
+            {% endfor %}
+            <p>
+                <label for="new-task">Add Item</label>
+                <input name="content" id="new-task" type="text" value="">
+                <button type="submit" name="submit">Add</button>
+            </p>
+            {% if tasksB | length > 0 %}
+                <h3>Todo</h3>
+            {% endif %}
+            {% for task in tasksA %}
+                <ul id="incomplete-tasks">
+                    <li>
+                        <input name="status" type="checkbox" onclick="window.location.assign('/check/{{ task.id }}/True')" value="True"">
+                        <label>{{ task.content }}</label>
+                        <input type="text">
+                        <button class="edit">
+                            <a class="edit" id="btn" href="/update/{{ task.id }}">Edit</a>
+                        </button>
+                        <button class="delete" >
+                            <a class="delete btn" id="btn" href="/delete/{{ task.id }}">Delete</a>
+                        </button>
+                    </li>
+                </ul>
+            {% endfor %}
+
+            {% if tasksB | length > 0 %}
+                <h3>Completed</h3>
+            {% endif %}
+
+            {% for task in tasksB %}
+                <ul id="completed-tasks">
+                    <li>
+                        <input name="status" type="checkbox" onclick="window.location.assign('/check/{{ task.id }}/False')" value="False" checked>
+                        <label>{{ task.content }}</label>
+                        <input type="text">
+                        <button class="edit">
+                            <a class="edit" id="btn" href="/update/{{ task.id }}">Edit</a>
+                        </button>
+                        <button class="delete" >
+                            <a class="delete" id="btn" href="/delete/{{ task.id }}">Delete</a>
+                        </button>
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+    </form>
+{% endblock %}

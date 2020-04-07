@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    Edit task
+{% endblock %}
+
+
+{% block content %}
+    <!-- Main Content -->
+    <form action="/update/{{ task.id }}" method="POST">
+        <div class="container" style="margin-top: 10px">
+            {% for category, message in get_flashed_messages(with_categories=True) %}
+                <div class="alert alert-{{category}}">{{ message }}</div>
+            {% endfor %}
+            <p>
+                <label for="new-task">Update task</label>
+                <input name="content" id="new-task" type="text" value="{{ task.content }}">
+                <button type="submit">Update</button>
+            </p>
+        </div>
+    </form>
+{% endblock %}
