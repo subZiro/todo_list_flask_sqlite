@@ -3,8 +3,8 @@
 
 class Configuration(object):
     # --debug mode-- #
-    DEBUG = True
-
+    # host='0.0.0.0', debug=True, port=80
+ 
     # --db connect-- #
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///todo.db'
